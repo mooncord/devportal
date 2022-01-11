@@ -26,6 +26,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+	"format": "prettier --write '{components,layouts,pages,typings,util}/**/*.{ts,js,tsx,jsx}'",
     "start": "next start",
     "lint": "next lint"
   },

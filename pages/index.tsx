@@ -3,18 +3,18 @@
  * Licensed under the Open Software License version 3.0
  */
 
-import type { DevPortalPage } from '../util/types';
+import type { DevPortalPage } from "../util/types";
 
 const Index: DevPortalPage = () => {
-  return null;
+	return null;
 };
 
 export function getStaticProps() {
-  return {
-    props: {
-      title: 'API Docs for Bots and Developers',
-    },
-  };
+	return {
+		props: {
+			title: "API Docs for Bots and Developers",
+		},
+	};
 }
 
 export default Index;

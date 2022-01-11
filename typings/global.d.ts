@@ -3,9 +3,9 @@
  * Licensed under the Open Software License version 3.0
  */
 
-import type { ReactElement } from 'react';
+import type { ReactElement } from "react";
 
-declare module '*.svg' {
-  const content: ReactElement;
-  export default content;
+declare module "*.svg" {
+	const content: ReactElement;
+	export default content;
 }
