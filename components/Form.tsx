@@ -31,9 +31,11 @@ export const FormLabel: FC<FormLabelProps> = ({
       >
         {children}
       </label>
-      <p className='text-sm font-normal leading-5 mb-5 text-header-secondary'>
-        {description}
-      </p>
+      {description && (
+        <p className='text-sm font-normal leading-5 mb-5 text-header-secondary'>
+          {description}
+        </p>
+      )}
     </div>
   );
 };

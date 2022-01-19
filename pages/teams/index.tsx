@@ -16,7 +16,7 @@ const Teams: DevPortalPage = () => {
         teams={[
           {
             id: '847374732063932438',
-            name: 'Discord Previews',
+            name: 'Testing',
             icon: 'ac8697c1a1a909cae6bde2cbd47f438a',
           },
         ]}

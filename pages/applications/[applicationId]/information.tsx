@@ -19,8 +19,8 @@ const ApplicationInformation: DevPortalPage = () => {
   const [description, setDescription] = useState(
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, hic?'
   );
-  const [tags, setTags] = useState(['tag1', 'tag2']);
-  const [interactionsViaHTTP, setInteractionsViaHTTP] = useState(false);
+  const [tags, setTags] = useState([]);
+  const [interactionsViaHTTP, setInteractionsViaHTTP] = useState(true);
   const [interactionsEndpoint, setInteractionsEndpoint] = useState(
     'https://example.com/interactions'
   );
@@ -74,17 +74,21 @@ const ApplicationInformation: DevPortalPage = () => {
       </section>
       <Divider />
       <section>
-        <FormLabel description='Add up to 5 tags to describe the content and functionality of your application.'>
+        <FormLabel
+          htmlFor='tags'
+          description='Add up to 5 tags to describe the content and functionality of your application.'
+        >
           Tags (maximum 5)
         </FormLabel>
         <TextInput
+          name='tags'
           value={tags.join(', ')}
           onChange={(value) => setTags(value.split(', '))}
         />
       </section>
       <Divider />
       <section>
-        <div className='flex'>
+        {/* <div className='flex'>
           <FormLabel description='If you want to receive interactions via HTTP POSTs rather than over Gateway with a bot user, enable this and set an endpoint below.'>
             Receive interactions via HTTP
           </FormLabel>
@@ -94,27 +98,26 @@ const ApplicationInformation: DevPortalPage = () => {
             className='ml-8'
             type='checkbox'
           />
-        </div>
+        </div> */}
         {interactionsViaHTTP && (
           <div>
             {/* Do we even need a label here or is it already covered by the above? */}
-            {/*
+
             <FormLabel
               htmlFor='interactionsEndpoint'
               description='An endpoint where the HTTP POSTs should be sent to. This endpoint need to pass signature verification before you can save it.'
             >
               Interactions Endpoint URL
-            </FormLabel> */}
+            </FormLabel>
             <div className='flex gap-12 items-start justify-between'>
               <TextInput
                 name='interactionsEndpoint'
                 wrapperClassName='w-full'
                 value={interactionsEndpoint}
-                error='Invalid URL'
                 placeholder='https://nice-example.local/api/interactions'
                 onChange={setInteractionsEndpoint}
               />
-              <Button>Test</Button>
+              {/* <Button>Test</Button> */}
             </div>
           </div>
         )}
@@ -122,21 +125,29 @@ const ApplicationInformation: DevPortalPage = () => {
       <Divider />
       <section className='flex gap-20 justify-between'>
         <div className='flex-1/2'>
-          <FormLabel description="A link to your application's Terms of Service">
+          <FormLabel
+            htmlFor='terms'
+            description="A link to your application's Terms of Service"
+          >
             Terms of Service URL
           </FormLabel>
           <TextInput
+            name='terms'
             value=''
             placeholder='https://my-cool-app.com/terms-of-service'
             onChange={(value) => setTags(value.split(','))}
           />
         </div>
         <div className='flex-1/2'>
-          <FormLabel description="A link to your application's Privacy Policy">
+          <FormLabel
+            htmlFor='privacyPolicyUrl'
+            description="A link to your application's Privacy Policy"
+          >
             Privacy Policy URL
           </FormLabel>
           <TextInput
             value=''
+            name='privacyPolicyUrl'
             placeholder='https://my-cool-app.com/privacy-policy'
             onChange={(value) => setTags(value.split(','))}
           />

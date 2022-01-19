@@ -10,7 +10,7 @@ interface ButtonProps {
   className?: string;
   children: React.ReactNode;
   color?: 'primary' | 'brand';
-  look?: 'filled' | 'outlined';
+  look?: 'filled' | 'outlined' | 'link';
 }
 
 const Button: FC<ButtonProps> = ({
@@ -36,6 +36,10 @@ const Button: FC<ButtonProps> = ({
         {
           'text-brand-500 border-brand-500':
             look === 'outlined' && color === 'brand',
+        },
+        {
+          'text-[#fff] hover:underline':
+            look === 'link' && color === 'primary',
         },
         {
           border: look === 'outlined',
